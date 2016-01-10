@@ -1,8 +1,12 @@
+package com.jrstan17.climate.etc;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Set;
+
+import com.jrstan17.climate.datacreator.ClimateData;
+import com.jrstan17.climate.datacreator.ClimateDataCreator;
 
 public class StatisticFactory {
 	public static final int START_CLIMATE_YEAR = 1981;

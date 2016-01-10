@@ -1,3 +1,4 @@
+package com.jrstan17.climate.numbercrunchers;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -17,6 +18,13 @@ import org.odftoolkit.simple.table.CellRange;
 import org.odftoolkit.simple.table.Column;
 import org.odftoolkit.simple.table.Row;
 import org.odftoolkit.simple.table.Table;
+
+import com.jrstan17.climate.datacreator.ClimateData;
+import com.jrstan17.climate.datacreator.ClimateDataCreator;
+import com.jrstan17.climate.etc.Entry;
+import com.jrstan17.climate.etc.Parser;
+import com.jrstan17.climate.etc.StatIndex;
+import com.jrstan17.climate.etc.StatisticFactory;
 
 public class DailyAlmanac extends NumberCruncher {
 

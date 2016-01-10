@@ -1,4 +1,7 @@
+package com.jrstan17.climate.datacreator;
 import java.util.Scanner;
+
+import com.jrstan17.climate.etc.FileHandler;
 
 public class ClimateDataCreator {
 	public static final String INPUT_FILE = "C:\\users\\jrstan17\\Desktop\\ClimateIO\\input\\input.txt";

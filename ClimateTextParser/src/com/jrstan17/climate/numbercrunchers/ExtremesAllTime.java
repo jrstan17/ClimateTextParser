@@ -1,6 +1,13 @@
+package com.jrstan17.climate.numbercrunchers;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+
+import com.jrstan17.climate.datacreator.ClimateData;
+import com.jrstan17.climate.datacreator.ClimateDataCreator;
+import com.jrstan17.climate.etc.Entry;
+import com.jrstan17.climate.etc.FileHandler;
+import com.jrstan17.climate.etc.Parser;
 
 public class ExtremesAllTime extends NumberCruncher {
 
