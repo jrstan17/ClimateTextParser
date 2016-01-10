@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="odfdom-0.8.7.jar"/>
+	<classpathentry kind="lib" path="simple-odf-0.8.1-incubating.jar"/>
+	<classpathentry kind="lib" path="xml-apis.jar"/>
+	<classpathentry kind="lib" path="xercesImpl.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
