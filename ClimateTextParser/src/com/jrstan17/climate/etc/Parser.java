@@ -1,4 +1,7 @@
+package com.jrstan17.climate.etc;
 import java.util.Scanner;
+
+import com.jrstan17.climate.datacreator.ClimateData;
 
 public class Parser {
 	public static final String INPUT_DIRECTORY = "C:\\users\\jrstan17\\Desktop\\";

@@ -1,5 +1,8 @@
+package com.jrstan17.climate.datacreator;
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import com.jrstan17.climate.etc.Entry;
 
 public class ClimateData {
 	private ArrayList<Entry> entries = new ArrayList<>();

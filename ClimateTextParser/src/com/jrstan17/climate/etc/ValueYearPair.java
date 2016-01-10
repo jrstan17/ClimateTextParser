@@ -1,3 +1,4 @@
+package com.jrstan17.climate.etc;
 
 public class ValueYearPair {
 	private int year = 0;
