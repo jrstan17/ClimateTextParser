@@ -1,29 +1,28 @@
 package com.jrstan17.climate.etc;
 
 public class ValueYearPair {
-	private int year = 0;
-	private double value = 0;
-	
-	public ValueYearPair(double value, int year){
-		this.year = year;
-		this.value = value;
-	}
+   private int year = 0;
+   private double value = 0;
 
-	public int year() {
-		return year;
-	}
+   public ValueYearPair(double value, int year) {
+      this.year = year;
+      this.value = value;
+   }
 
-	public void setYear(int year) {
-		this.year = year;
-	}
+   public int year() {
+      return year;
+   }
 
-	public double value() {
-		return value;
-	}
+   public void setYear(int year) {
+      this.year = year;
+   }
 
-	public void setValue(double value) {
-		this.value = value;
-	}
-	
-	
+   public double value() {
+      return value;
+   }
+
+   public void setValue(double value) {
+      this.value = value;
+   }
+
 }
