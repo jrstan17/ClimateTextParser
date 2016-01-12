@@ -1,17 +1,12 @@
 package com.jrstan17.climate.numbercrunchers;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-import org.odftoolkit.odfdom.type.Color;
 import org.odftoolkit.simple.SpreadsheetDocument;
-import org.odftoolkit.simple.style.Border;
 import org.odftoolkit.simple.style.Font;
-import org.odftoolkit.simple.style.StyleTypeDefinitions.CellBordersType;
 import org.odftoolkit.simple.style.StyleTypeDefinitions.FontStyle;
 import org.odftoolkit.simple.style.StyleTypeDefinitions.HorizontalAlignmentType;
-import org.odftoolkit.simple.style.StyleTypeDefinitions.SupportedLinearMeasure;
 import org.odftoolkit.simple.style.StyleTypeDefinitions.VerticalAlignmentType;
 import org.odftoolkit.simple.table.Cell;
 import org.odftoolkit.simple.table.CellRange;
@@ -21,6 +16,7 @@ import org.odftoolkit.simple.table.Table;
 
 import com.jrstan17.climate.datacreator.ClimateData;
 import com.jrstan17.climate.datacreator.ClimateDataCreator;
+import com.jrstan17.climate.date.ClimateDate;
 import com.jrstan17.climate.etc.Entry;
 import com.jrstan17.climate.etc.Parser;
 import com.jrstan17.climate.etc.StatIndex;
@@ -33,7 +29,7 @@ public class DailyAlmanac extends NumberCruncher {
 	public static final int ENTRY_ROW_START = 3;
 	public static final int NUM_STAT_ROWS = 4;
 
-	private GregorianCalendar date = new GregorianCalendar();
+	private ClimateDate date = new ClimateDate();
 	private int statRowStart = 0;
 	private ClimateDataCreator cdc;
 	private ClimateData cd;

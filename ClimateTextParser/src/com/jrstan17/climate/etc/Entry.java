@@ -2,8 +2,10 @@ package com.jrstan17.climate.etc;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
+import com.jrstan17.climate.date.ClimateDate;
+
 public class Entry {
-	private GregorianCalendar date = new GregorianCalendar();
+	private ClimateDate date = new ClimateDate();
 	private Double maxTemp = 0.0;
 	private Double minTemp = 0.0;
 	private Double avgTemp = 0.0;
@@ -37,7 +39,7 @@ public class Entry {
 		return pieces;
 	}
 
-	public GregorianCalendar date() {
+	public ClimateDate date() {
 		return date;
 	}
 
