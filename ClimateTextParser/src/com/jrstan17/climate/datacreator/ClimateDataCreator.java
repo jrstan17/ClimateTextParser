@@ -3,17 +3,16 @@ package com.jrstan17.climate.datacreator;
 import java.util.Scanner;
 
 import com.jrstan17.climate.etc.FileHandler;
+import com.jrstan17.climate.etc.Parser;
 
 public class ClimateDataCreator {
-   public static final String INPUT_FILE = "C:\\users\\jrstan17\\Desktop\\ClimateIO\\input\\input.txt";
-   public static final String OUTPUT_FILE = "/home/jrstan17/Desktop/output.txt";
    public static final char TAB = '\t';
    public static final char NEW_LINE = '\n';
    private Scanner scr = null;
    private ClimateData cd = new ClimateData();
 
    public ClimateDataCreator() {
-      scr = FileHandler.openFileToRead(INPUT_FILE);
+      scr = FileHandler.openFileToRead(Parser.INPUT_DIRECTORY + Parser.INPUT_FILE);
 
       while (scr.hasNextLine()) {
          parseData();

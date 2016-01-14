@@ -37,7 +37,7 @@ public class ExtremesAllTime extends NumberCruncher {
       ClimateDataCreator cdc = new ClimateDataCreator();
       ClimateData cd = cdc.getClimateData();
 
-      for (Entry e : cd.getEntries()) {
+      for (Entry e : cd.getAllEntries()) {
          int i = findDateIndex(e.date());
 
          if (e.maxTemp() != null && e.maxTemp() >= maxs[i]) {

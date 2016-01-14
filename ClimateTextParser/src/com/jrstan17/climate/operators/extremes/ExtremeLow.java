@@ -16,7 +16,7 @@ public class ExtremeLow extends ExtremeOperator {
             double currentValue = e.get(statIndex);
             if (currentValue <= extremeValue) {
                extremeValue = currentValue;
-               extreme = e;
+               result = e;
             }
          }
       }

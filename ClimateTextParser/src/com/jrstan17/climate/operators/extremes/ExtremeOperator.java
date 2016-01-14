@@ -4,14 +4,10 @@ import java.util.ArrayList;
 
 import com.jrstan17.climate.etc.Entry;
 import com.jrstan17.climate.etc.StatIndex;
-import com.jrstan17.climate.operators.Operator;
+import com.jrstan17.climate.operators.EntryOperator;
 
-public abstract class ExtremeOperator implements Operator {
-   protected Entry extreme;
+public abstract class ExtremeOperator extends EntryOperator {
    
    public abstract void calculate(ArrayList<Entry> entries, StatIndex statIndex);
-   
-   public Entry getExtreme(){
-      return extreme;
-   }
+
 }

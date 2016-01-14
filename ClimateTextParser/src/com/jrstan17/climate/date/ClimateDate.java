@@ -3,6 +3,7 @@ package com.jrstan17.climate.date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Locale;
 
 @SuppressWarnings("serial")
 public class ClimateDate extends GregorianCalendar {
@@ -53,12 +54,14 @@ public class ClimateDate extends GregorianCalendar {
    }
 
    public String toString() {
-      SimpleDateFormat sdf = new SimpleDateFormat("MMMM d, YYYY");
-      return sdf.format(this.getTime());
-   }
-
-   public String toString(String pattern) {
-      SimpleDateFormat sdf = new SimpleDateFormat(pattern);
-      return sdf.format(this.getTime());
+      StringBuilder sb = new StringBuilder();
+      
+      sb.append(getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US));
+      sb.append(" ");
+      sb.append(get(Calendar.DATE));
+      sb.append(", ");
+      sb.append(get(Calendar.YEAR));      
+      
+      return sb.toString();
    }
 }

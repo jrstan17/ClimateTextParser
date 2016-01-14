@@ -36,7 +36,7 @@ public class AveragesPerMonth extends NumberCruncher {
       ClimateDataCreator cdc = new ClimateDataCreator();
       ClimateData cd = cdc.getClimateData();
 
-      for (Entry e : cd.getEntries()) {
+      for (Entry e : cd.getAllEntries()) {
          if (e.maxTemp() != null) {
             maxTempSums[e.month()] = maxTempSums[e.month()] + e.maxTemp();
             maxTempDays[e.month()]++;

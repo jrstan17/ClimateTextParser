@@ -13,7 +13,7 @@ public class ClimateData {
       entries.add(new Entry(pieces));
    }
 
-   public ArrayList<Entry> getEntries() {
+   public ArrayList<Entry> getAllEntries() {
       return entries;
    }
 

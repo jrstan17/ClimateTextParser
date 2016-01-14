@@ -5,7 +5,9 @@ import java.util.Scanner;
 import com.jrstan17.climate.datacreator.ClimateData;
 
 public class Parser {
-   public static final String INPUT_DIRECTORY = "C:\\users\\jrstan17\\Desktop\\";
+   public static final String INPUT_DIRECTORY = "";
+   public static final String INPUT_FILE = "input.txt";
+   
    public static final String OUTPUT_DIRECTORY = "C:\\users\\jrstan17\\Desktop\\ClimateIO\\output\\";
    public static final char TAB = '\t';
    public static final char NEW_LINE = '\n';
@@ -15,7 +17,7 @@ public class Parser {
    private ClimateData cd = new ClimateData();
 
    public Parser() {
-      scr = FileHandler.openFileToRead(INPUT_DIRECTORY + "input.txt");
+      scr = FileHandler.openFileToRead(INPUT_DIRECTORY + INPUT_FILE);
       parse(scr);
    }
 

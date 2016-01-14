@@ -25,7 +25,7 @@ public class StatisticFactory {
       cdc = new ClimateDataCreator();
       cd = cdc.getClimateData();
 
-      entries = cd.getEntries();
+      entries = cd.getAllEntries();
    }
 
    public Entry getExtremeForDate(Calendar date, StatIndex stat, boolean isMax) {

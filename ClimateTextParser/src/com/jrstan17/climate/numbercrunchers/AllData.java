@@ -38,7 +38,7 @@ public class AllData extends NumberCruncher {
       sb.append("Snow Depth");
       sb.append(Parser.NEW_LINE);
 
-      for (Entry e : cd.getEntries()) {
+      for (Entry e : cd.getAllEntries()) {
          sdf.setCalendar(e.date());
          sb.append(sdf.format(e.date().getTime()));
          sb.append(Parser.TAB);

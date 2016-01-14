@@ -61,7 +61,7 @@ public class MonthlySummary extends NumberCruncher {
    private void createEntries() {
       entries.clear();
 
-      for (Entry e : cd.getEntries()) {
+      for (Entry e : cd.getAllEntries()) {
          if (e.month() == month && e.year() == year) {
             entries.add(e);
          }
