@@ -19,8 +19,7 @@ public class Driver {
       ClimateDate one = new ClimateDate(0, Calendar.JULY, 1);
       ClimateDate two = new ClimateDate(0, Calendar.JANUARY, 17);
 
-      NormalSinceDate nsd = new NormalSinceDate();
-      double result = nsd.calculate(cd.getAllEntries(), one, two,
+      NormalSinceDate nsd = new NormalSinceDate(cd.getAllEntries(), one, two,
             StatIndex.SNOWFALL);
 
       ClimateDate today = new ClimateDate();
@@ -28,10 +27,9 @@ public class Driver {
             Calendar.JULY, 1);
 
       ArrayList<Entry> list = cd.getEntries(julyFirst, today);
-      Sum sum = new Sum();
-      sum.calculate(list, StatIndex.SNOWFALL);
+      Sum sum = new Sum(list, StatIndex.SNOWFALL);
 
-      System.out.println("Normal snowfall since July 1: \n" + result);
+      System.out.println("Normal snowfall since July 1: \n" + nsd.getResult());
       System.out.println("Actual snowfall since July 1: \n" + sum.getResult());
    }
 }
