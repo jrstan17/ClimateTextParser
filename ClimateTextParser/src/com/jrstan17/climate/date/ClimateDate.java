@@ -1,6 +1,5 @@
 package com.jrstan17.climate.date;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.Locale;
@@ -13,9 +12,7 @@ public class ClimateDate extends GregorianCalendar {
    }
 
    public ClimateDate(int year, int month, int date) {
-      set(Calendar.YEAR, year);
-      set(Calendar.MONTH, month);
-      set(Calendar.DATE, date);
+      set(year, month, date);
    }
 
    public final boolean equals(final Object other) {
@@ -55,13 +52,24 @@ public class ClimateDate extends GregorianCalendar {
 
    public String toString() {
       StringBuilder sb = new StringBuilder();
-      
+
       sb.append(getDisplayName(Calendar.MONTH, Calendar.LONG, Locale.US));
       sb.append(" ");
       sb.append(get(Calendar.DATE));
       sb.append(", ");
-      sb.append(get(Calendar.YEAR));      
-      
+      sb.append(get(Calendar.YEAR));
+
       return sb.toString();
+   }
+
+   public ClimateDate getLastJulyFirst() {
+      ClimateDate julyFirst = new ClimateDate(get(Calendar.YEAR), Calendar.JULY,
+            1);
+
+      if (this.compareTo(julyFirst) == 1) {
+         julyFirst.add(Calendar.YEAR, -1);
+      }
+
+      return julyFirst;
    }
 }

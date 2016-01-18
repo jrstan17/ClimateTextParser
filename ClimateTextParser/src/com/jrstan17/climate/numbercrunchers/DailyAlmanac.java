@@ -18,7 +18,7 @@ import org.odftoolkit.simple.table.Table;
 import com.jrstan17.climate.datacreator.ClimateData;
 import com.jrstan17.climate.datacreator.ClimateDataCreator;
 import com.jrstan17.climate.date.ClimateDate;
-import com.jrstan17.climate.etc.Entry;
+import com.jrstan17.climate.entry.Entry;
 import com.jrstan17.climate.etc.Parser;
 import com.jrstan17.climate.etc.StatIndex;
 import com.jrstan17.climate.etc.StatisticFactory;

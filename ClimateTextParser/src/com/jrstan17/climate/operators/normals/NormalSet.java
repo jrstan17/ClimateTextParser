@@ -1,4 +1,4 @@
-package com.jrstan17.climate.operators.extremes;
+package com.jrstan17.climate.operators.normals;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -6,28 +6,31 @@ import java.util.Calendar;
 import com.jrstan17.climate.datacreator.ClimateData;
 import com.jrstan17.climate.datacreator.ClimateDataCreator;
 import com.jrstan17.climate.date.ClimateDate;
-import com.jrstan17.climate.etc.Entry;
+import com.jrstan17.climate.entry.Entry;
 import com.jrstan17.climate.etc.StatIndex;
 import com.jrstan17.climate.operators.math.MathOperator;
-import com.jrstan17.climate.operators.math.averages.DailyAverage;
-import com.jrstan17.climate.operators.math.averages.MonthlyAverage;
+import com.jrstan17.climate.operators.math.averages.PlainAverage;
+import com.jrstan17.climate.operators.math.averages.PrecipAverage;
 
 public class NormalSet {
    public static final ClimateDate CLIMATE_START_DATE = new ClimateDate(1981,
          Calendar.JANUARY, 1);
-   public static final ClimateDate CLIMATE_STOP_DATE = new ClimateDate(2010,
+   public static final ClimateDate CLIMATE_STOP_DATE = new ClimateDate(1982,
          Calendar.DECEMBER, 31);
 
    private Double result = 0.0;
-   private ArrayList<Entry> entries = new ArrayList<>();
-
-   public ArrayList<Entry> getEntries() {
-      return entries;
-   }
+   private ArrayList<Entry> entries;
 
    public NormalSet(ArrayList<Entry> rawEntries, ClimateDate dayMonthStart,
          ClimateDate dayMonthStop) {
+      reset(rawEntries, dayMonthStart, dayMonthStop);
+   }
 
+   public void reset(ArrayList<Entry> rawEntries, ClimateDate dayMonthStart,
+         ClimateDate dayMonthStop) {
+      entries = new ArrayList<>();
+      result = 0.0;
+      
       for (Entry e : rawEntries) {
          if (e.date().compareTo(CLIMATE_START_DATE) >= 0
                && e.date().compareTo(CLIMATE_STOP_DATE) <= 0
@@ -41,16 +44,15 @@ public class NormalSet {
       MathOperator operator;
 
       if (statIndex == StatIndex.PRECIP || statIndex == StatIndex.SNOWFALL) {
-         operator = new MonthlyAverage();
+         operator = new PrecipAverage();
       } else {
-         operator = new DailyAverage();
+         operator = new PlainAverage();
       }
 
       operator.calculate(entries, statIndex);
       result = operator.getResult();
    }
 
-   
    private boolean isBetween(ClimateDate test, ClimateDate start,
          ClimateDate stop) {
       int testMonth = test.get(Calendar.MONTH);
@@ -84,25 +86,8 @@ public class NormalSet {
    public double getResult() {
       return result;
    }
-   
-   
-   
-   public static void main(String[] args) {
-      ClimateDataCreator cdc = new ClimateDataCreator();
-      ClimateData cd = cdc.getClimateData();
 
-      ClimateDate firstOfMonth = new ClimateDate(0, Calendar.JANUARY, 1);
-      ClimateDate today = new ClimateDate(0, Calendar.JANUARY, 31);
-      
-      NormalSet ns = new NormalSet(cd.getAllEntries(), firstOfMonth, today);
-      ns.calculate(StatIndex.PRECIP);
-      
-      ArrayList<Entry> list = ns.getEntries();
-      
-      for (Entry e : list){
-         System.out.println(e.date());
-      }
-      
-      System.out.println(ns.getResult());
+   public ArrayList<Entry> getEntries() {
+      return entries;
    }
 }

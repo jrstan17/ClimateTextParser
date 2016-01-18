@@ -2,7 +2,7 @@ package com.jrstan17.climate.operators;
 
 import java.util.ArrayList;
 
-import com.jrstan17.climate.etc.Entry;
+import com.jrstan17.climate.entry.Entry;
 import com.jrstan17.climate.etc.StatIndex;
 
 public abstract class EntryOperator extends Operator {

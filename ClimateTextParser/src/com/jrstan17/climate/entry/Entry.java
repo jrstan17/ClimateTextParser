@@ -1,8 +1,9 @@
-package com.jrstan17.climate.etc;
+package com.jrstan17.climate.entry;
 
 import java.util.Calendar;
 
 import com.jrstan17.climate.date.ClimateDate;
+import com.jrstan17.climate.etc.StatIndex;
 
 public class Entry {
    private ClimateDate date = new ClimateDate();

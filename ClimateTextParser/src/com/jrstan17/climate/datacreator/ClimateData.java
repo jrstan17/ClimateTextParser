@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import com.jrstan17.climate.date.ClimateDate;
-import com.jrstan17.climate.etc.Entry;
+import com.jrstan17.climate.entry.Entry;
 
 public class ClimateData {
    private ArrayList<Entry> entries = new ArrayList<>();

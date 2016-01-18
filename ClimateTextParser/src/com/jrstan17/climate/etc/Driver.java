@@ -5,7 +5,9 @@ import java.util.Calendar;
 import com.jrstan17.climate.datacreator.ClimateData;
 import com.jrstan17.climate.datacreator.ClimateDataCreator;
 import com.jrstan17.climate.date.ClimateDate;
-import com.jrstan17.climate.operators.extremes.NormalSet;
+import com.jrstan17.climate.operators.math.Sum;
+import com.jrstan17.climate.operators.normals.NormalSet;
+import com.jrstan17.climate.operators.normals.NormalSinceDate;
 
 public class Driver {
 
@@ -13,12 +15,13 @@ public class Driver {
       ClimateDataCreator cdc = new ClimateDataCreator();
       ClimateData cd = cdc.getClimateData();
 
-      ClimateDate firstOfMonth = new ClimateDate(0, Calendar.JANUARY, 1);
-      ClimateDate today = new ClimateDate(0, Calendar.JANUARY, 31);
-      
-      NormalSet ns = new NormalSet(cd.getAllEntries(), firstOfMonth, today);
-      ns.calculate(StatIndex.PRECIP);
-      
-      System.out.println(ns.getResult());
+      ClimateDate one = new ClimateDate(0, Calendar.APRIL, 1);
+      ClimateDate two = new ClimateDate(0, Calendar.APRIL, 2);
+
+      NormalSinceDate nsd = new NormalSinceDate();
+      double result = nsd.calculate(cd.getAllEntries(), one, two,
+            StatIndex.PRECIP);
+
+      System.out.println(result);
    }
 }

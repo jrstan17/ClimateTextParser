@@ -2,7 +2,7 @@ package com.jrstan17.climate.operators.extremes;
 
 import java.util.ArrayList;
 
-import com.jrstan17.climate.etc.Entry;
+import com.jrstan17.climate.entry.Entry;
 import com.jrstan17.climate.etc.StatIndex;
 
 public class ExtremeLow extends ExtremeOperator {

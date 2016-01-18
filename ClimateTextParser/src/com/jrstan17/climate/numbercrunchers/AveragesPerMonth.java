@@ -2,7 +2,7 @@ package com.jrstan17.climate.numbercrunchers;
 
 import com.jrstan17.climate.datacreator.ClimateData;
 import com.jrstan17.climate.datacreator.ClimateDataCreator;
-import com.jrstan17.climate.etc.Entry;
+import com.jrstan17.climate.entry.Entry;
 import com.jrstan17.climate.etc.FileHandler;
 import com.jrstan17.climate.etc.Parser;
 import com.jrstan17.climate.etc.Utility;

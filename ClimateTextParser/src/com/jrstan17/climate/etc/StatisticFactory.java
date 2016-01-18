@@ -8,6 +8,7 @@ import java.util.Set;
 
 import com.jrstan17.climate.datacreator.ClimateData;
 import com.jrstan17.climate.datacreator.ClimateDataCreator;
+import com.jrstan17.climate.entry.Entry;
 
 public class StatisticFactory {
    public static final int START_CLIMATE_YEAR = 1981;
