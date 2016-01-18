@@ -7,6 +7,13 @@ import com.jrstan17.climate.etc.StatIndex;
 
 public class Sum extends MathOperator {
 
+   public Sum() {
+   }
+
+   public Sum(ArrayList<Entry> entries, StatIndex statIndex) {
+      calculate(entries, statIndex);
+   }
+
    @Override
    public void calculate(ArrayList<Entry> entries, StatIndex statIndex) {
       if (entries != null) {

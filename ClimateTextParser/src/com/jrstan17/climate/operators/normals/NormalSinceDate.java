@@ -6,12 +6,22 @@ import java.util.Calendar;
 import com.jrstan17.climate.date.ClimateDate;
 import com.jrstan17.climate.entry.Entry;
 import com.jrstan17.climate.etc.StatIndex;
+import com.jrstan17.climate.operators.math.MathOperator;
 
-public class NormalSinceDate {
-   NormalSet firstNS;
-   NormalSet lastNS;
+public class NormalSinceDate{
+   private NormalSet firstNS;
+   private NormalSet lastNS;
+   private double result;
 
-   public double calculate(ArrayList<Entry> rawEntries, ClimateDate start,
+   public NormalSinceDate() {
+   }
+
+   public NormalSinceDate(ArrayList<Entry> rawEntries, ClimateDate start,
+         ClimateDate stop, StatIndex statIndex) {
+      calculate(rawEntries, start, stop, statIndex);
+   }
+
+   public void calculate(ArrayList<Entry> rawEntries, ClimateDate start,
          ClimateDate stop, StatIndex statIndex) {
       if (start.compareTo(stop) > 0) {
          ClimateDate lastDay = new ClimateDate(0, Calendar.DECEMBER, 31);
@@ -24,14 +34,18 @@ public class NormalSinceDate {
          lastNS.calculate(statIndex);
 
          if (statIndex == StatIndex.PRECIP || statIndex == StatIndex.SNOWFALL) {
-            return firstNS.getResult() + lastNS.getResult();
+            result = firstNS.getResult() + lastNS.getResult();
          } else {
-            return (firstNS.getResult() + lastNS.getResult()) / 2;
+            result = (firstNS.getResult() + lastNS.getResult()) / 2;
          }
       } else {
          firstNS = new NormalSet(rawEntries, start, stop);
          firstNS.calculate(statIndex);
-         return firstNS.getResult();
+         result = firstNS.getResult();
       }
+   }
+   
+   public double getResult(){
+      return result;
    }
 }
