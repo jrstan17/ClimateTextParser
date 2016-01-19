@@ -12,6 +12,8 @@ import com.jrstan17.climate.operators.math.MathOperator;
 import com.jrstan17.climate.operators.math.averages.PlainAverage;
 
 public class Driver {
+   
+   String ok = "ok";
 
    public static void main(String[] args) {
       StatIndex stat = StatIndex.SNOWFALL;
