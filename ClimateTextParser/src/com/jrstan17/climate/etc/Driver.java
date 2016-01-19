@@ -1,5 +1,6 @@
 package com.jrstan17.climate.etc;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -7,29 +8,39 @@ import com.jrstan17.climate.datacreator.ClimateData;
 import com.jrstan17.climate.datacreator.ClimateDataCreator;
 import com.jrstan17.climate.date.ClimateDate;
 import com.jrstan17.climate.entry.Entry;
-import com.jrstan17.climate.operators.math.Sum;
-import com.jrstan17.climate.operators.normals.NormalSinceDate;
+import com.jrstan17.climate.operators.math.MathOperator;
+import com.jrstan17.climate.operators.math.averages.PlainAverage;
 
 public class Driver {
 
    public static void main(String[] args) {
+      StatIndex stat = StatIndex.SNOWFALL;
+      DecimalFormat df = new DecimalFormat("0.0");
+
       ClimateDataCreator cdc = new ClimateDataCreator();
       ClimateData cd = cdc.getClimateData();
 
-      ClimateDate one = new ClimateDate(0, Calendar.JULY, 1);
-      ClimateDate two = new ClimateDate(0, Calendar.JANUARY, 17);
+      for (int year = 1893; year <= 2016; year++) {
+         ClimateDate start = new ClimateDate(year, Calendar.JANUARY, 1);
+         ClimateDate stop = new ClimateDate();
+         stop.set(Calendar.YEAR, year);
+//         stop.set(Calendar.MONTH, Calendar.JULY);
+//         stop.set(Calendar.DATE, 1);
 
-      NormalSinceDate nsd = new NormalSinceDate(cd.getAllEntries(), one, two,
-            StatIndex.SNOWFALL);
+         ArrayList<Entry> entries = cd.getEntries(start, stop);
+         MathOperator operator = new PlainAverage(entries, stat);
 
-      ClimateDate today = new ClimateDate();
-      ClimateDate julyFirst = new ClimateDate(today.get(Calendar.YEAR) - 1,
-            Calendar.JULY, 1);
+         if (operator.getResult() != null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("Average " + StatIndex.getLabel(stat) + " for ");
+            sb.append(start);
+            sb.append(" through ");
+            sb.append(stop);
+            sb.append(":\t");
+            sb.append(df.format(operator.getResult()));
 
-      ArrayList<Entry> list = cd.getEntries(julyFirst, today);
-      Sum sum = new Sum(list, StatIndex.SNOWFALL);
-
-      System.out.println("Normal snowfall since July 1: \n" + nsd.getResult());
-      System.out.println("Actual snowfall since July 1: \n" + sum.getResult());
+            System.out.println(sb.toString());
+         }
+      }
    }
 }

@@ -25,6 +25,28 @@ public enum StatIndex {
       }
    }
 
+   public static String getLabel(StatIndex statIndex) {
+      if (statIndex == StatIndex.DATE) {
+         return "date";
+      } else if (statIndex == StatIndex.MAX_TEMP) {
+         return "maximum temperature";
+      } else if (statIndex == StatIndex.MIN_TEMP) {
+         return "minimum temperature";
+      } else if (statIndex == StatIndex.AVG_TEMP) {
+         return "average temperature";
+      } else if (statIndex == StatIndex.AVG_TEMP_DEPART) {
+         return "average temperature departure";
+      } else if (statIndex == StatIndex.PRECIP) {
+         return "precipitation";
+      } else if (statIndex == StatIndex.SNOWFALL) {
+         return "snowfall";
+      } else if (statIndex == StatIndex.SNOW_DEPTH) {
+         return "snow depth";
+      } else {
+         return "NaN";
+      }
+   }
+
    public static StatIndex getStatIndex(int index) {
       switch (index) {
       case 0:

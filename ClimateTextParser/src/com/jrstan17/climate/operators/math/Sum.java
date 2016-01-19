@@ -19,6 +19,10 @@ public class Sum extends MathOperator {
       if (entries != null) {
          for (Entry e : entries) {
             if (e.get(statIndex) != null) {
+               if (result == null) {
+                  result = 0.0;
+               }
+
                result += e.get(statIndex);
                numOfEntries++;
             }
